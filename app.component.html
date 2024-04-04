@@ -1,0 +1,16 @@
+<app-matrix-form (matrixData)="onMatrixData($event)"></app-matrix-form>
+
+<ion-card *ngIf="resultMatrix">
+  <ion-card-header>
+    <ion-card-title>Результат</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row *ngFor="let row of resultMatrix">
+        <ion-col *ngFor="let value of row">
+          {{ value }}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

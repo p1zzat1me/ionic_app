@@ -1,0 +1,17 @@
+<ion-item>
+  <ion-label position="floating">Розмірність матриці (макс. 6)</ion-label>
+  <ion-input type="number" [(ngModel)]="matrixSize" (ionChange)="generateMatrix()"></ion-input>
+</ion-item>
+
+<ion-button expand="block" (click)="generateMatrix()">Згенерувати матрицю</ion-button>
+
+<form (ngSubmit)="onSubmit()">
+  <ion-grid>
+    <ion-row *ngFor="let row of matrix; let i = index">
+      <ion-col *ngFor="let col of row; let j = index">
+        <ion-input type="number" [value]="matrix[i][j]" (ionChange)="updateMatrix(i, j, $event)"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button type="submit" expand="block">Розрахувати віднімання рядка</ion-button>
+</form>
